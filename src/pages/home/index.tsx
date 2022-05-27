@@ -1,7 +1,6 @@
 import * as C from './style'
 import card from '../../images/card.svg'
 import { Header } from '../../components/header';
-import { Link } from 'react-router-dom';
 import { RoutesBtn } from '../../components/Login&Registry';
 
 

@@ -1,9 +1,17 @@
 import { useState, ChangeEvent } from 'react'
+import { useDispatch } from 'react-redux';
+import { setName, setKey } from '../../redux/reducers/userReducer';
 import { Link } from 'react-router-dom';
 import { Header } from '../../components/header'
 import * as C from './style'
+import { useApp } from '../../redux/hooks/useSelector';
 
 export const Login = () => {
+    const dispatch = useDispatch()
+    const user = useApp(state => state.user)
+    const userPassowrd = useApp(state => state.user.password)
+
+
     const [registration, setRegistration] = useState('');
     const [userKey, setKey] = useState('');
 
@@ -31,7 +39,7 @@ export const Login = () => {
                     type="password"
                     onChange={handleKey}
                     value={userKey}
-                    placeholder={userKey ? '' : 'Create a strong password'}
+                    placeholder={userKey ? '' : 'Enter your password'}
                 />
             </C.Registry>
             <Link to="/user">
